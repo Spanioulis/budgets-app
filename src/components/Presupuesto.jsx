@@ -24,6 +24,7 @@ export const Presupuesto = () => {
             : setImporteTotal(importeTotal - Number(target.value));
     };
     const handleNumber = (event) => {
+        // event.preventDefault();
         setPresupuesto({ ...presupuesto, [event.target.id]: Number(event.target.value) });
     };
 
@@ -41,7 +42,14 @@ export const Presupuesto = () => {
                     <Panell className="panell">
                         <div className="panell-label">
                             <label htmlFor="pages">Número de páginas: </label>
-                            <input className="panell-input" type="number" id="pages" min={0} onChange={handleNumber} />
+                            <input
+                                className="panell-input"
+                                type="number"
+                                id="pages"
+                                value={presupuesto.pages}
+                                min={0}
+                                onChange={handleNumber}
+                            />
                         </div>
                         <div className="panell-label">
                             <label htmlFor="languages">Número de idiomas: </label>
@@ -49,6 +57,7 @@ export const Presupuesto = () => {
                                 className="panell-input"
                                 type="number"
                                 id="languages"
+                                value={presupuesto.languages}
                                 min={0}
                                 onChange={handleNumber}
                             />
