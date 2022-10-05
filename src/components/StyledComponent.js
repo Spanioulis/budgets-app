@@ -8,6 +8,7 @@ const GlobalStyle = createGlobalStyle`
 }
 html, body {
   background-color: #395B64;
+  ${'' /* background-color: #242d38; */}
   color: antiquewhite;
   font-family: 'Barlow Semi Condensed', sans-serif;
   font-size: 1.1rem;
@@ -49,7 +50,12 @@ const Input = styled.input`
 const Panell = styled.div`
     border: 2px solid black;
     border-radius: 5px;
-    background-color: greenyellow;
+    width: 80%;
+    padding: 0.8rem 0.5rem 0.8rem 0rem;
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 `;
 
 export { GlobalStyle, Fieldset, Legend, Form, Label, Input, Panell };

@@ -1,0 +1,11 @@
+.panell-label {
+    display: flex;
+    padding-left: 0.6rem;
+    gap: 0.4rem;
+}
+
+.panell-input {
+    width: 25%;
+    height: 25px;
+    padding-left: 5px;
+}
