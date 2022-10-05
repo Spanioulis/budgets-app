@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Fieldset, Form, Label, Legend, Input } from './StyledComponent';
+import { Fieldset, Form, Label, Legend, Input, Panell } from './StyledComponent';
 
 export const Presupuesto = () => {
     const [presupuesto, setPresupuesto] = useState({
@@ -27,6 +27,7 @@ export const Presupuesto = () => {
                     <Input type="checkbox" id="web" value={500} onChange={handleCheckbox} />
                     Una página web (500€)
                 </Label>
+                <Panell>Ejercicio 2</Panell>
                 <Label htmlFor="seo">
                     <Input type="checkbox" id="seo" value={300} onChange={handleCheckbox} />
                     Una consultoria SEO (300€)

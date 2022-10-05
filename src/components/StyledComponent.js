@@ -1,6 +1,6 @@
 import styled, { createGlobalStyle } from 'styled-components';
 
-export const GlobalStyle = createGlobalStyle`
+const GlobalStyle = createGlobalStyle`
 * {
     margin: 0;
     padding: 0;
@@ -21,8 +21,7 @@ main {
     margin-top: 2rem;
 }
 `;
-
-export const Fieldset = styled.fieldset`
+const Fieldset = styled.fieldset`
     background-color: antiquewhite;
     border-radius: 5px;
     border: 1px solid black;
@@ -30,24 +29,27 @@ export const Fieldset = styled.fieldset`
     min-width: 35%;
     padding: 1rem;
 `;
-
-export const Legend = styled.legend`
+const Legend = styled.legend`
     background-color: antiquewhite;
     border-radius: 5px;
     border: 1px black solid;
     padding: 0.5rem;
 `;
-
-export const Form = styled.form`
+const Form = styled.form`
     display: flex;
     flex-direction: column;
     gap: 0.8rem;
 `;
-
-export const Label = styled.label`
+const Label = styled.label`
     align-self: flex-start;
 `;
-
-export const Input = styled.input`
+const Input = styled.input`
     accent-color: orange;
 `;
+const Panell = styled.div`
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: greenyellow;
+`;
+
+export { GlobalStyle, Fieldset, Legend, Form, Label, Input, Panell };
