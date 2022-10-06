@@ -16,19 +16,22 @@ export const Presupuesto = () => {
     const { pages, languages } = presupuesto;
     let totalExtras = (pages + languages) * 30;
     // HANDLES
-    const handleCheckbox = ({ target }) => {
-        const isChecked = target.checked;
-        setPresupuesto({ ...presupuesto, [target.id]: isChecked });
+    const handleCheckbox = ({ target: { id, value, checked } }) => {
+        const isChecked = checked;
+        // Resetear pages & languages al deseleccionar opción Web
+        id === 'web'
+            ? setPresupuesto({ ...presupuesto, [id]: isChecked, pages: 0, languages: 0 })
+            : setPresupuesto({ ...presupuesto, [id]: isChecked });
+        // Añadir importe o no según estado del check
         isChecked
-            ? setImporteTotal(importeTotal + Number(target.value))
-            : setImporteTotal(importeTotal - Number(target.value));
+            ? setImporteTotal(importeTotal + Number(value))
+            : setImporteTotal(importeTotal - Number(value));
     };
-    const handleNumber = (event) => {
-        // event.preventDefault();
-        setPresupuesto({ ...presupuesto, [event.target.id]: Number(event.target.value) });
+    const handleNumber = ({ target: { id, value } }) => {
+        setPresupuesto({ ...presupuesto, [id]: Number(value) });
     };
 
-    //! Break Point
+    //! BREAK-POINT
 
     return (
         <Fieldset>
@@ -74,7 +77,8 @@ export const Presupuesto = () => {
                 </Label>
                 <hr />
                 <p>
-                    <em>Precio:</em> <strong>{importeTotal > 0 ? importeTotal + totalExtras : 0}€</strong>
+                    <em>Precio:</em>{' '}
+                    <strong>{importeTotal > 0 ? importeTotal + totalExtras : 0}€</strong>
                 </p>
             </Form>
         </Fieldset>
