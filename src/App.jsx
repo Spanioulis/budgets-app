@@ -10,7 +10,7 @@ function App() {
             </header>
             <main>
                 <Presupuesto />
-                <div>Parte derecha</div>
+                {/* <div>Parte derecha</div> */}
             </main>
         </>
     );

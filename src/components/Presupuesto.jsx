@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Fieldset, Form, Label, Legend, Input, Panell } from './StyledComponent';
-import '../styles/App.css';
+import { Button } from './Button';
 
 export const Presupuesto = () => {
-    // HOOKS
+    // Hooks
     const [presupuesto, setPresupuesto] = useState({
         web: false,
         seo: false,
@@ -11,11 +11,23 @@ export const Presupuesto = () => {
         pages: 0,
         languages: 0
     });
+    // Prevenir pages or languages negativas
+    if (presupuesto.pages < 0) {
+        setPresupuesto({
+            ...presupuesto,
+            pages: 0
+        });
+    } else if (presupuesto.languages < 0) {
+        setPresupuesto({
+            ...presupuesto,
+            languages: 0
+        });
+    }
     const [importeTotal, setImporteTotal] = useState(0);
-    // Calcular extras
+    // Calcular extras web
     const { pages, languages } = presupuesto;
     let totalExtras = (pages + languages) * 30;
-    // HANDLES
+    // Handles
     const handleCheckbox = ({ target: { id, value, checked } }) => {
         const isChecked = checked;
         // Resetear pages & languages al deseleccionar opción Web
@@ -30,8 +42,22 @@ export const Presupuesto = () => {
     const handleNumber = ({ target: { id, value } }) => {
         setPresupuesto({ ...presupuesto, [id]: Number(value) });
     };
+    //TODO: Destructuring 'event'
+    const handleClick = (event) => {
+        event.preventDefault();
 
-    //! BREAK-POINT
+        if (event.target.id === 'add') {
+            setPresupuesto({
+                ...presupuesto,
+                [event.target.name]: presupuesto[event.target.name] + 1
+            });
+        } else {
+            setPresupuesto({
+                ...presupuesto,
+                [event.target.name]: presupuesto[event.target.name] - 1
+            });
+        }
+    };
 
     return (
         <Fieldset>
@@ -45,25 +71,35 @@ export const Presupuesto = () => {
                     <Panell className="panell">
                         <div className="panell-label">
                             <label htmlFor="pages">Número de páginas: </label>
-                            <input
-                                className="panell-input"
+                            <Button
+                                classNameAdd="button-add"
+                                classNameInput="panell-input"
+                                classNameSub="button-sub"
+                                handleClick={handleClick}
+                                idAdd="add"
+                                idInput="pages"
+                                idSub="sub"
+                                name="pages"
+                                handleNumber={handleNumber}
                                 type="number"
-                                id="pages"
                                 value={presupuesto.pages}
-                                min={0}
-                                onChange={handleNumber}
-                            />
+                            ></Button>
                         </div>
                         <div className="panell-label">
                             <label htmlFor="languages">Número de idiomas: </label>
-                            <input
-                                className="panell-input"
+                            <Button
+                                classNameAdd="button-add"
+                                classNameInput="panell-input"
+                                classNameSub="button-sub"
+                                handleClick={handleClick}
+                                idAdd="add"
+                                idInput="languages"
+                                idSub="sub"
+                                name="languages"
+                                handleNumber={handleNumber}
                                 type="number"
-                                id="languages"
                                 value={presupuesto.languages}
-                                min={0}
-                                onChange={handleNumber}
-                            />
+                            ></Button>
                         </div>
                     </Panell>
                 )}
