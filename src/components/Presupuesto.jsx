@@ -17,22 +17,17 @@ export const Presupuesto = () => {
     if (presupuesto.pages < 0) {
         setPresupuesto({
             ...presupuesto,
-            pages: 0
+            pages: 1
         });
     } else if (presupuesto.languages < 0) {
         setPresupuesto({
             ...presupuesto,
-            languages: 0
+            languages: 1
         });
     }
     const [importeTotal, setImporteTotal] = useState(0);
-    // Calcular extras web
-    const { pages, languages } = presupuesto;
-    let totalExtras = (pages + languages) * 30;
     // Añadir o quitar importe del servicio elegido
     const handleCheckbox = ({ target: { id, value, checked } }) => {
-        // TODO: Trabajar aquí el punto de volver a clickar...
-        console.log('handleCheckbox');
         const isChecked = checked;
         // Resetear pages & languages al deseleccionar opción Web
         id === 'web'
@@ -64,14 +59,6 @@ export const Presupuesto = () => {
             });
         }
     };
-
-    // Recuperar datos del local-storage (getItem) al recargar página
-    // useEffect(() => {
-    //     const data = JSON.parse(localStorage.getItem('Refresh'));
-    //     if (data) {
-    //         setPresupuesto(data);
-    //     }
-    // }, []);
     // Enviar datos al local-storage (setItem) al cambiar estado de 'Presupuesto'
     useEffect(() => {
         const importeRefresh =
@@ -81,8 +68,6 @@ export const Presupuesto = () => {
         setImporteTotal((importeTotal) => (importeTotal = importeRefresh));
         localStorage.setItem('Refresh', JSON.stringify(presupuesto));
     }, [presupuesto]);
-
-    //! BREAK-POINT
 
     return (
         <Fieldset>
@@ -94,7 +79,10 @@ export const Presupuesto = () => {
                         id="web"
                         value={500}
                         onClick={handleCheckbox}
-                        // checked={presupuesto.web && true}
+                        // Marcar automáticamente al cargar página si es true
+                        checked={presupuesto.web && true}
+                        // Evitar warning del checked (react-dom)
+                        readOnly
                     />
                     Una página web (500€)
                 </Label>
@@ -111,10 +99,6 @@ export const Presupuesto = () => {
                                 idSub="sub"
                                 name="pages"
                                 handleNumber={handleNumber}
-                                // onclick={(e) => {
-                                //     handleClick(e);
-                                //     setLocalStorage(e);
-                                // }}
                                 onclick={handleClick}
                                 type="text"
                                 value={presupuesto.pages}
@@ -131,10 +115,6 @@ export const Presupuesto = () => {
                                 idSub="sub"
                                 name="languages"
                                 handleNumber={handleNumber}
-                                // onclick={(e) => {
-                                //     handleClick(e);
-                                //     setLocalStorage(e);
-                                // }}
                                 onclick={handleClick}
                                 type="text"
                                 value={presupuesto.languages}
@@ -147,12 +127,9 @@ export const Presupuesto = () => {
                         type="checkbox"
                         id="seo"
                         value={300}
-                        // onClick={(e) => {
-                        //     handleCheckbox(e);
-                        //     setLocalStorage(e);
-                        // }}
-                        // onClick={setLocalStorage}
                         onClick={handleCheckbox}
+                        checked={presupuesto.seo && true}
+                        readOnly
                     />
                     Una consultoria SEO (300€)
                 </Label>
@@ -161,18 +138,15 @@ export const Presupuesto = () => {
                         type="checkbox"
                         id="google"
                         value={200}
-                        // onClick={(e) => {
-                        //     handleCheckbox(e);
-                        //     setLocalStorage(e);
-                        // }}
                         onClick={handleCheckbox}
+                        checked={presupuesto.google && true}
+                        readOnly
                     />
                     Una campaña de Google Ads (200€)
                 </Label>
                 <hr />
                 <p>
-                    <em>Precio:</em>{' '}
-                    <strong>{importeTotal > 0 ? importeTotal + totalExtras : 0}€</strong>
+                    <em>Precio:</em> <strong>{importeTotal > 0 ? importeTotal : 0}€</strong>
                 </p>
             </Form>
         </Fieldset>
