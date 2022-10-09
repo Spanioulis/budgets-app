@@ -4,18 +4,18 @@ export const Button = ({
     classNameAdd,
     classNameInput,
     classNameSub,
-    handleClick,
+    handleNumber,
     idAdd,
     idInput,
     idSub,
     name,
-    handleNumber,
+    onclick,
     type,
     value
 }) => {
     return (
         <>
-            <button className={classNameAdd} id={idAdd} name={name} onClick={handleClick}>
+            <button className={classNameAdd} id={idAdd} name={name} onClick={onclick} value={value}>
                 {idAdd === 'add' && '+'}
             </button>
             <input
@@ -25,7 +25,7 @@ export const Button = ({
                 value={value}
                 onChange={handleNumber}
             />
-            <button className={classNameSub} id={idSub} name={name} onClick={handleClick}>
+            <button className={classNameSub} id={idSub} name={name} onClick={onclick} value={value}>
                 {idSub === 'sub' && '-'}
             </button>
         </>
