@@ -1,19 +1,17 @@
-import { Presupuesto } from './components/Presupuesto';
-import { GlobalStyle } from './components/StyledComponent';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Landing } from './pages/Landing';
+import { AppPresupuestos } from './pages/AppPresupuestos';
 
 function App() {
     return (
         <>
-            <GlobalStyle />
-            <header>
-                <h2>Presupuestos páginas web</h2>
-            </header>
-            <main>
-                <Presupuesto />
-                {/* <div>Parte derecha</div> */}
-            </main>
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/presupuesto" element={<AppPresupuestos />}></Route>
+                    <Route path="/" element={<Landing />}></Route>
+                </Routes>
+            </BrowserRouter>
         </>
     );
 }
-
 export default App;

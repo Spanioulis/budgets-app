@@ -7,11 +7,7 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
 }
 html, body {
-  ${'' /* background-color: #395B64; */}
-  background-color: #242d38;
-  color: antiquewhite;
-  font-family: 'Barlow Semi Condensed', sans-serif;
-  font-size: 1.1rem;
+  font-size: 1rem;
   margin: 1rem;
   text-align: center;
 }
@@ -69,5 +65,9 @@ const Panell = styled.div`
         }
     }
 `;
+const Footer = styled.footer`
+    margin-top: 2rem;
+    color: antiquewhite;
+`;
 
-export { GlobalStyle, Fieldset, Legend, Form, Label, Input, Panell };
+export { GlobalStyle, Fieldset, Legend, Form, Label, Input, Panell, Footer };

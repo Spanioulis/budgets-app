@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Fieldset, Form, Label, Legend, Input, Panell } from './StyledComponent';
+import { Fieldset, Form, Label, Legend, Input, Panell } from './App.styled';
 import { Button } from './Button';
 
 export const Presupuesto = () => {
