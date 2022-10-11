@@ -25,7 +25,6 @@ body {
 }
 
 main {
-    /* align-items: center; */
     display: flex;
     justify-content: space-around;
     margin-top: 2rem;
@@ -56,8 +55,8 @@ img {
 }
 
 .welcome {
-    padding: 1.5rem;
     margin: 0 4rem 0 2rem;
+    padding: 1.5rem;
 }
 
 .btn {
@@ -74,4 +73,11 @@ img {
 .btn:hover {
     background-color: rgb(9, 9, 87);
     color: antiquewhite;
+}
+
+/* Mediaquery */
+@media (max-width: 992px) {
+    main {
+        flex-direction: column;
+    }
 }

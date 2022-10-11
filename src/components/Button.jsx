@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import { Modal } from './Modal';
 import '../styles/App.css';
 
 export const Button = ({
@@ -13,6 +15,13 @@ export const Button = ({
     type,
     value
 }) => {
+    const [isOpen, setIsOpen] = useState(false);
+    // Cambiar estado del Modal de false (default) a true
+    const handleModal = (event) => {
+        event.preventDefault();
+        setIsOpen(!isOpen);
+    };
+
     return (
         <>
             <button className={classNameAdd} id={idAdd} name={name} onClick={onclick} value={value}>
@@ -28,6 +37,22 @@ export const Button = ({
             <button className={classNameSub} id={idSub} name={name} onClick={onclick} value={value}>
                 {idSub === 'sub' && '-'}
             </button>
+            <button className="btn-info" onClick={handleModal} id={idInput}>
+                i
+            </button>
+            <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
+                {idInput === 'pages' ? (
+                    <>
+                        En esta casilla se muestra el número de páginas que necesitas para tu página
+                        web. Actualmente has elegido un total de {value} páginas.
+                    </>
+                ) : (
+                    <>
+                        En cambio, en esta otra casilla, se muestra el número de idiomas que quieres
+                        que hable tu página web. Actualmente son {value} idiomas.
+                    </>
+                )}
+            </Modal>
         </>
     );
 };

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Presupuesto } from '../components/Presupuesto';
 import { GlobalStyle, Footer } from '../components/App.styled';
+import '../styles/App.css';
 
 const AppPresupuestos = () => {
     return (
@@ -11,7 +12,7 @@ const AppPresupuestos = () => {
             </header>
             <main>
                 <Presupuesto />
-                <div>Parte derecha</div>
+                {/* <div>Parte derecha</div> */}
             </main>
             <Footer>
                 <Link to="/">
