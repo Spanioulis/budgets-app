@@ -12,7 +12,6 @@ html, body {
   text-align: center;
 }
 main {
-    align-items: center;
     display: flex;
     justify-content: space-around;
     margin-top: 2rem;
@@ -23,8 +22,11 @@ const Fieldset = styled.fieldset`
     border-radius: 5px;
     border: 1px solid black;
     color: black;
-    min-width: 40%;
+    max-width: 40%;
+    /* max-height: 500px; */
+    /* overflow: scroll; */
     padding: 1rem;
+    margin: 1rem;
 `;
 const Legend = styled.legend`
     background-color: antiquewhite;

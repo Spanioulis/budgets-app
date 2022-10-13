@@ -6,12 +6,12 @@ export const Button = ({
     classNameAdd,
     classNameInput,
     classNameSub,
+    handleClick,
     handleNumber,
     idAdd,
     idInput,
     idSub,
     name,
-    onclick,
     type,
     value
 }) => {
@@ -24,7 +24,13 @@ export const Button = ({
 
     return (
         <>
-            <button className={classNameAdd} id={idAdd} name={name} onClick={onclick} value={value}>
+            <button
+                className={classNameAdd}
+                id={idAdd}
+                name={name}
+                onClick={handleClick}
+                value={value}
+            >
                 {idAdd === 'add' && '+'}
             </button>
             <input
@@ -34,7 +40,13 @@ export const Button = ({
                 value={value}
                 onChange={handleNumber}
             />
-            <button className={classNameSub} id={idSub} name={name} onClick={onclick} value={value}>
+            <button
+                className={classNameSub}
+                id={idSub}
+                name={name}
+                onClick={handleClick}
+                value={value}
+            >
                 {idSub === 'sub' && '-'}
             </button>
             <button className="btn-info" onClick={handleModal} id={idInput}>

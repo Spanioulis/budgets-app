@@ -7,6 +7,7 @@
 .panell-input {
     border-radius: 5px;
     border: 1px black solid;
+    font-family: 'Fira Mono', monospace;
     font-size: 0.8rem;
     height: 25px;
     padding-left: 8px;
@@ -47,6 +48,40 @@ input[type='number']::-webkit-inner-spin-button {
     font-weight: bold;
     padding-right: 2px;
     width: 25px;
+}
+
+.input-form {
+    border-radius: 5px;
+    border: 1px black solid;
+    font-family: 'Fira Mono', monospace;
+    height: 25px;
+    padding: 0.5rem;
+    width: 150px;
+}
+
+.btn-submit {
+    background-color: rgb(9, 9, 87);
+    border-radius: 10px;
+    border: none;
+    color: antiquewhite;
+    font-family: 'Fira Mono', monospace;
+    height: 40px;
+    opacity: 0.7;
+    width: 150px;
+}
+
+.btn-submit:hover {
+    background-color: rgb(79, 158, 55);
+    color: antiquewhite;
+}
+
+.budgets-container {
+    font-size: 0.8rem;
+    padding: 1rem;
+}
+
+.budget {
+    margin-top: 0.7rem;
 }
 
 .link {

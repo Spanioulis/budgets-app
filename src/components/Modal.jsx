@@ -5,7 +5,7 @@ export const Modal = ({ children, isOpen, setIsOpen }) => {
     const handleCloseModal = ({ target: { id } }) => {
         // Cerrar únicamente cuando se haga click en la parte gris ('modal')
         if (id === 'modal') {
-            setIsOpen(!isOpen);
+            setIsOpen(false);
         }
     };
     return (
