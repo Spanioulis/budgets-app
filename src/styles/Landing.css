@@ -6,7 +6,8 @@
 
 html,
 body {
-    background: url(../assets/images/landing-page2.jpg);
+    /* background: url(../assets/images/landing-page2.jpg); */
+    background-color: #21232a;
     height: 100vh;
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -14,6 +15,7 @@ body {
     background-size: cover;
     color: antiquewhite;
     font-family: 'Fira Mono', monospace;
+
 }
 
 .text-center {

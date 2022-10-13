@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
-import { Fieldset, Form, Label, Legend, Input, Panell } from './App.styled';
+import { FieldsetForm, FieldsetBudget, Form, Label, Legend, Input, Panell } from './App.styled';
 import { Button } from './Button';
+import { Budget } from './Budget';
 import '../styles/App.css';
 
 export const Presupuesto = () => {
@@ -90,12 +91,11 @@ export const Presupuesto = () => {
     };
 
     // Enviar formulario del presupuesto creado (onSubmit)
-    const enviarPresupuesto = (event) => {
+    const sendBudget = (event) => {
         event.preventDefault();
         // let exist = console.log(event.target.value);
 
         setBudgets([
-            ...budgets,
             {
                 customerName: presupuesto.customerName,
                 budgetName: presupuesto.budgetName,
@@ -106,26 +106,27 @@ export const Presupuesto = () => {
                 google: presupuesto.google,
                 totalImport: importeTotal,
                 date: date.toLocaleDateString('es-ES', options)
-            }
+            },
+            ...budgets
         ]);
     };
 
     // Guardar información en Local Storage
     useEffect(() => {
-        const importeRefresh =
+        const importRefresh =
             (presupuesto.web && 500 + presupuesto.pages * presupuesto.languages * 30) +
             (presupuesto.seo && 300) +
             (presupuesto.google && 200);
-        setImporteTotal((importeTotal) => (importeTotal = importeRefresh));
+        setImporteTotal((importeTotal) => (importeTotal = importRefresh));
         localStorage.setItem('Refresh', JSON.stringify(presupuesto));
         // localStorage.setItem('Budget', JSON.stringify(budget));
     }, [presupuesto]);
 
     return (
         <>
-            <Fieldset>
+            <FieldsetForm>
                 <Legend> ¿Qué quieres hacer? </Legend>
-                <Form onSubmit={enviarPresupuesto}>
+                <Form onSubmit={sendBudget}>
                     <Label htmlFor="web">
                         <Input
                             type="checkbox"
@@ -197,16 +198,6 @@ export const Presupuesto = () => {
                         />
                         Una campaña de Google Ads (200€)
                     </Label>
-                    <Label htmlFor="budgetName">
-                        Nombre del presupuesto:{' '}
-                        <input
-                            className="input-form"
-                            type="text"
-                            id="budgetName"
-                            value={presupuesto.budgetName}
-                            onChange={handleBudgetName}
-                        />
-                    </Label>
                     <Label htmlFor="customerName">
                         Nombre del cliente:{' '}
                         <input
@@ -215,6 +206,16 @@ export const Presupuesto = () => {
                             id="customerNamme"
                             value={presupuesto.customerName}
                             onChange={handleCustomerName}
+                        />
+                    </Label>
+                    <Label htmlFor="budgetName">
+                        Nombre del presupuesto:{' '}
+                        <input
+                            className="input-form"
+                            type="text"
+                            id="budgetName"
+                            value={presupuesto.budgetName}
+                            onChange={handleBudgetName}
                         />
                     </Label>
                     <hr />
@@ -227,28 +228,11 @@ export const Presupuesto = () => {
                         </button>
                     </div>
                 </Form>
-            </Fieldset>
-            <Fieldset>
+            </FieldsetForm>
+            <FieldsetBudget>
                 <Legend>Presupuestos confirmados</Legend>
-                <div className="budgets-container">
-                    {budgets.map((budget, index) => {
-                        budget.web === true ? (budget.web = 'Sí') : (budget.web = 'No');
-                        budget.seo === true ? (budget.seo = 'Sí') : (budget.seo = 'No');
-                        budget.google === true ? (budget.google = 'Sí') : (budget.google = 'No');
-
-                        return (
-                            <p className="budget" key={index}>
-                                <b>Cliente</b>: {budget.customerName} <b>Presupuesto</b>:{' '}
-                                {budget.budgetName} <b>Fecha</b>: {budget.date} -{' '}
-                                <b>Importe total</b>: {budget.totalImport}€ - <b>Servicios</b>:{' '}
-                                <i>Web</i> ({budget.web} - {budget.pages} <i>páginas</i>,{' '}
-                                {budget.languages} <i>idiomas</i>) <i>Seo</i> ({budget.seo}){' '}
-                                <i>Google Ads</i> ({budget.google})
-                            </p>
-                        );
-                    })}
-                </div>
-            </Fieldset>
+                <Budget budgets={budgets} totalImport={importeTotal} />
+            </FieldsetBudget>
         </>
     );
 };

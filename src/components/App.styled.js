@@ -17,14 +17,25 @@ main {
     margin-top: 2rem;
 }
 `;
-const Fieldset = styled.fieldset`
+const FieldsetForm = styled.fieldset`
     background-color: antiquewhite;
     border-radius: 5px;
     border: 1px solid black;
     color: black;
-    max-width: 40%;
-    /* max-height: 500px; */
+    min-width: 40%;
+    max-height: 440px;
     /* overflow: scroll; */
+    padding: 1rem;
+    margin: 1rem;
+`;
+const FieldsetBudget = styled.fieldset`
+    background-color: #c4dfaa;
+    border-radius: 5px;
+    border: 1px solid black;
+    color: black;
+    width: 60%;
+    max-height: 445px;
+    overflow: scroll;
     padding: 1rem;
     margin: 1rem;
 `;
@@ -72,4 +83,4 @@ const Footer = styled.footer`
     color: antiquewhite;
 `;
 
-export { GlobalStyle, Fieldset, Legend, Form, Label, Input, Panell, Footer };
+export { GlobalStyle, FieldsetForm, FieldsetBudget, Legend, Form, Label, Input, Panell, Footer };
