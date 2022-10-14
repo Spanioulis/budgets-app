@@ -20,6 +20,7 @@ export const Presupuesto = () => {
     const [importeTotal, setImporteTotal] = useState(0);
     const [budgets, setBudgets] = useState([]);
     // JSON.parse(localStorage.getItem('Budget')) ||
+    const [search, setSearch] = useState('');
 
     // Prevenir pages || languages negativas
     if (presupuesto.pages < 0) {
@@ -70,13 +71,14 @@ export const Presupuesto = () => {
     };
     // Enviar datos al local-storage (setItem) al cambiar estado de 'Presupuesto'
 
-    // Añadir nombre al presupuesto
-    const handleBudgetName = (event) => {
-        setPresupuesto({ ...presupuesto, budgetName: event.target.value });
-    };
     // Añadir nombre del cliente/usuario
     const handleCustomerName = (event) => {
         setPresupuesto({ ...presupuesto, customerName: event.target.value });
+    };
+
+    // Añadir nombre al presupuesto
+    const handleBudgetName = (event) => {
+        setPresupuesto({ ...presupuesto, budgetName: event.target.value });
     };
 
     // Fecha
@@ -119,6 +121,7 @@ export const Presupuesto = () => {
         });
 
         setPresupuesto({ ...presupuesto });
+        scrollAuto();
     };
 
     // Ordenar listado por orden de fecha de validación (de más antiguo a más reciente)
@@ -130,6 +133,7 @@ export const Presupuesto = () => {
         });
 
         setPresupuesto({ ...presupuesto });
+        scrollAuto();
     };
 
     // Ordenar listado por origen de entrada
@@ -141,6 +145,21 @@ export const Presupuesto = () => {
         });
 
         setPresupuesto({ ...presupuesto });
+        scrollAuto();
+    };
+
+    // Reiniciar valor del scroll al ordenar página
+    const scrollAuto = () => {
+        let budget = document.querySelector('.fieldset-budget');
+        budget.scrollTop = 0;
+    };
+
+    // Buscador por nombre de cliente o presupuesto
+    const handleSearcher = (event) => {
+        const {
+            target: { value }
+        } = event;
+        setSearch(value);
     };
 
     // Guardar información en Local Storage
@@ -153,6 +172,8 @@ export const Presupuesto = () => {
         localStorage.setItem('Refresh', JSON.stringify(presupuesto));
         // localStorage.setItem('Budget', JSON.stringify(budget));
     }, [presupuesto]);
+
+    //* BREAK-POINT
 
     return (
         <>
@@ -261,7 +282,7 @@ export const Presupuesto = () => {
                     </div>
                 </Form>
             </FieldsetForm>
-            <FieldsetBudget>
+            <FieldsetBudget className="fieldset-budget">
                 <Legend>Presupuestos confirmados</Legend>
                 <div className="btn-budget-container">
                     <button className="btn-budget" onClick={handleSortAZ}>
@@ -271,10 +292,19 @@ export const Presupuesto = () => {
                         Ordenar por fecha
                     </button>
                     <button className="btn-budget" onClick={handleSortOrigin}>
-                        Resetear orden
+                        Resetear
                     </button>
+                    <div>
+                        <input
+                            className="input-searcher"
+                            type="text"
+                            value={search}
+                            onChange={handleSearcher}
+                            placeholder="Busca un cliente o presupuesto"
+                        />
+                    </div>
                 </div>
-                <Budget budgets={budgets} totalImport={importeTotal} />
+                <Budget budgets={budgets} totalImport={importeTotal} search={search} />
             </FieldsetBudget>
         </>
     );

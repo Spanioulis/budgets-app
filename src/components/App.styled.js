@@ -8,7 +8,7 @@ const GlobalStyle = createGlobalStyle`
 }
 html, body {
   font-size: 1rem;
-  margin: 1rem;
+  margin: 1rem 2rem 0 2rem;
   text-align: center;
 }
 main {
@@ -22,19 +22,18 @@ const FieldsetForm = styled.fieldset`
     border-radius: 5px;
     border: 1px solid black;
     color: black;
-    min-width: 40%;
-    max-height: 440px;
-    /* overflow: scroll; */
-    padding: 1rem;
     margin: 1rem;
+    max-height: 460px;
+    min-width: 42%;
+    padding: 1rem;
 `;
 const FieldsetBudget = styled.fieldset`
     background-color: #babce8;
     border-radius: 5px;
     border: 1px solid black;
     color: black;
-    width: 60%;
-    max-height: 445px;
+    min-width: 58%;
+    max-height: 460px;
     overflow: scroll;
     padding: 1rem;
     margin: 1rem;
