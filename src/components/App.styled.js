@@ -23,7 +23,7 @@ const FieldsetForm = styled.fieldset`
     border: 1px solid black;
     color: black;
     margin: 1rem;
-    max-height: 460px;
+    height: 445px;
     min-width: 42%;
     padding: 1rem;
 `;
@@ -33,15 +33,23 @@ const FieldsetBudget = styled.fieldset`
     border: 1px solid black;
     color: black;
     min-width: 58%;
-    max-height: 460px;
-    overflow: scroll;
+    height: 500px;
     padding: 1rem;
     margin: 1rem;
 `;
-const Legend = styled.legend`
-    background-color: antiquewhite;
+const LegendForm = styled.legend`
+    background-color: #672f2f;
     border-radius: 5px;
     border: 1px black solid;
+    color: antiquewhite;
+    padding: 0.5rem;
+`;
+const LegendBudget = styled.legend`
+    background-color: #383e56;
+    border-radius: 5px;
+    border: 1px black solid;
+    color: antiquewhite;
+    /* opacity: 0.7; */
     padding: 0.5rem;
 `;
 const Form = styled.form`
@@ -82,4 +90,15 @@ const Footer = styled.footer`
     color: antiquewhite;
 `;
 
-export { GlobalStyle, FieldsetForm, FieldsetBudget, Legend, Form, Label, Input, Panell, Footer };
+export {
+    GlobalStyle,
+    FieldsetForm,
+    FieldsetBudget,
+    LegendForm,
+    LegendBudget,
+    Form,
+    Label,
+    Input,
+    Panell,
+    Footer
+};

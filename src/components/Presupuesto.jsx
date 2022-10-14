@@ -1,5 +1,14 @@
 import { useEffect, useState } from 'react';
-import { FieldsetForm, FieldsetBudget, Form, Label, Legend, Input, Panell } from './App.styled';
+import {
+    FieldsetForm,
+    FieldsetBudget,
+    Form,
+    Label,
+    Input,
+    Panell,
+    LegendBudget,
+    LegendForm
+} from './App.styled';
 import { Button } from './Button';
 import { Budget } from './Budget';
 import '../styles/App.css';
@@ -18,8 +27,7 @@ export const Presupuesto = () => {
         }
     );
     const [importeTotal, setImporteTotal] = useState(0);
-    const [budgets, setBudgets] = useState([]);
-    // JSON.parse(localStorage.getItem('Budget')) ||
+    const [budgets, setBudgets] = useState(JSON.parse(localStorage.getItem('Budget')) || []);
     const [search, setSearch] = useState('');
 
     // Prevenir pages || languages negativas
@@ -170,15 +178,15 @@ export const Presupuesto = () => {
             (presupuesto.google && 200);
         setImporteTotal((importeTotal) => (importeTotal = importRefresh));
         localStorage.setItem('Refresh', JSON.stringify(presupuesto));
-        // localStorage.setItem('Budget', JSON.stringify(budget));
-    }, [presupuesto]);
+        localStorage.setItem('Budget', JSON.stringify(budgets));
+    }, [presupuesto, budgets]);
 
     //* BREAK-POINT
 
     return (
         <>
             <FieldsetForm>
-                <Legend> ¿Qué quieres hacer? </Legend>
+                <LegendForm> ¿Qué quieres hacer? </LegendForm>
                 <Form onSubmit={sendBudget}>
                     <Label htmlFor="web">
                         <Input
@@ -283,7 +291,7 @@ export const Presupuesto = () => {
                 </Form>
             </FieldsetForm>
             <FieldsetBudget className="fieldset-budget">
-                <Legend>Presupuestos confirmados</Legend>
+                <LegendBudget>Presupuestos confirmados</LegendBudget>
                 <div className="btn-budget-container">
                     <button className="btn-budget" onClick={handleSortAZ}>
                         Ordenar A-Z
@@ -292,7 +300,10 @@ export const Presupuesto = () => {
                         Ordenar por fecha
                     </button>
                     <button className="btn-budget" onClick={handleSortOrigin}>
-                        Resetear
+                        Orden original
+                    </button>
+                    <button className="btn-budget" onClick={() => setBudgets([])}>
+                        Reset
                     </button>
                     <div>
                         <input
