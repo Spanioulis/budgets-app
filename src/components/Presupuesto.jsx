@@ -93,7 +93,6 @@ export const Presupuesto = () => {
     // Enviar formulario del presupuesto creado (onSubmit)
     const sendBudget = (event) => {
         event.preventDefault();
-        // let exist = console.log(event.target.value);
 
         setBudgets([
             {
@@ -109,6 +108,39 @@ export const Presupuesto = () => {
             },
             ...budgets
         ]);
+    };
+
+    // Ordenar listado de presupuestos de la A la Z (nombre del cliente)
+    const handleSortAZ = () => {
+        budgets.sort((a, b) => {
+            if (a.customerName.toLowerCase() < b.customerName.toLowerCase()) return -1;
+            else if (a.customerName.toLowerCase() > b.customerName.toLowerCase()) return 1;
+            return 0;
+        });
+
+        setPresupuesto({ ...presupuesto });
+    };
+
+    // Ordenar listado por orden de fecha de validación (de más antiguo a más reciente)
+    const handleSortDate = () => {
+        budgets.sort((a, b) => {
+            if (a.date < b.date) return -1;
+            else if (a.date > b.date) return 1;
+            return 0;
+        });
+
+        setPresupuesto({ ...presupuesto });
+    };
+
+    // Ordenar listado por origen de entrada
+    const handleSortOrigin = () => {
+        budgets.sort((a, b) => {
+            if (b.date < a.date) return -1;
+            else if (b.date > a.date) return 1;
+            return 0;
+        });
+
+        setPresupuesto({ ...presupuesto });
     };
 
     // Guardar información en Local Storage
@@ -231,6 +263,17 @@ export const Presupuesto = () => {
             </FieldsetForm>
             <FieldsetBudget>
                 <Legend>Presupuestos confirmados</Legend>
+                <div className="btn-budget-container">
+                    <button className="btn-budget" onClick={handleSortAZ}>
+                        Ordenar A-Z
+                    </button>
+                    <button className="btn-budget" onClick={handleSortDate}>
+                        Ordenar por fecha
+                    </button>
+                    <button className="btn-budget" onClick={handleSortOrigin}>
+                        Resetear orden
+                    </button>
+                </div>
                 <Budget budgets={budgets} totalImport={importeTotal} />
             </FieldsetBudget>
         </>

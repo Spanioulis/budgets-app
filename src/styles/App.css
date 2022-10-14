@@ -1,3 +1,7 @@
+* {
+    font-family: 'Fira Mono', monospace;
+}
+
 .panell-label {
     display: flex;
     gap: 0.4rem;
@@ -7,7 +11,6 @@
 .panell-input {
     border-radius: 5px;
     border: 1px black solid;
-    font-family: 'Fira Mono', monospace;
     font-size: 0.8rem;
     height: 25px;
     padding-left: 8px;
@@ -53,7 +56,6 @@ input[type='number']::-webkit-inner-spin-button {
 .input-form {
     border-radius: 5px;
     border: 1px black solid;
-    font-family: 'Fira Mono', monospace;
     height: 25px;
     padding: 0.5rem;
     width: 150px;
@@ -64,7 +66,6 @@ input[type='number']::-webkit-inner-spin-button {
     border-radius: 10px;
     border: none;
     color: antiquewhite;
-    font-family: 'Fira Mono', monospace;
     height: 40px;
     opacity: 0.7;
     width: 150px;
@@ -75,9 +76,30 @@ input[type='number']::-webkit-inner-spin-button {
     color: antiquewhite;
 }
 
-.budgets-container {
+.budget-container {
     font-size: 0.8rem;
     padding: 1rem;
+}
+
+/* .btn-budget-container {
+    position: fixed;
+} */
+
+.btn-budget {
+    background-color: #f5f6f7;
+    border-radius: 10px;
+    border: none;
+    color: #21232a;
+    height: 40px;
+    margin-right: 1rem;
+    opacity: 0.7;
+    padding: 0.7rem;
+    width: auto;
+}
+
+.btn-budget:hover {
+    background-color: rgb(9, 9, 87);
+    color: antiquewhite;
 }
 
 .budget {

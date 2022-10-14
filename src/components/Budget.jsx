@@ -1,16 +1,17 @@
+/* eslint-disable no-self-assign */
 import '../styles/App.css';
 import { v4 as uuidv4 } from 'uuid';
 
 export const Budget = ({ budgets }) => {
     return (
-        <div className="budgets-container">
+        <div className="budget-container">
             {budgets.map((budget) => {
                 budget.customerName === ''
                     ? (budget.customerName = 'Sin datos')
-                    : (budget.customerName = [budget.customerName]);
+                    : (budget.customerName = budget.customerName);
                 budget.budgetName === ''
                     ? (budget.budgetName = 'Sin datos')
-                    : (budget.budgetName = [budget.budgetName]);
+                    : (budget.budgetName = budget.budgetName);
 
                 return (
                     <p className="budget" key={uuidv4()}>

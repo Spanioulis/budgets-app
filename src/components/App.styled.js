@@ -29,7 +29,7 @@ const FieldsetForm = styled.fieldset`
     margin: 1rem;
 `;
 const FieldsetBudget = styled.fieldset`
-    background-color: #c4dfaa;
+    background-color: #babce8;
     border-radius: 5px;
     border: 1px solid black;
     color: black;
