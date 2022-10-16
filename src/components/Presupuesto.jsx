@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
     FieldsetForm,
     FieldsetBudget,
@@ -77,7 +78,6 @@ export const Presupuesto = () => {
             });
         }
     };
-    // Enviar datos al local-storage (setItem) al cambiar estado de 'Presupuesto'
 
     // Añadir nombre del cliente/usuario
     const handleCustomerName = (event) => {
@@ -171,6 +171,7 @@ export const Presupuesto = () => {
     };
 
     // Guardar información en Local Storage
+    const navigate = useNavigate();
     useEffect(() => {
         const importRefresh =
             (presupuesto.web && 500 + presupuesto.pages * presupuesto.languages * 30) +
@@ -179,9 +180,10 @@ export const Presupuesto = () => {
         setImporteTotal((importeTotal) => (importeTotal = importRefresh));
         localStorage.setItem('Refresh', JSON.stringify(presupuesto));
         localStorage.setItem('Budget', JSON.stringify(budgets));
-    }, [presupuesto, budgets]);
-
-    //* BREAK-POINT
+        navigate({
+            search: `?paginaWeb=${presupuesto.web}&campaniaSeo=${presupuesto.seo}&campaniaAds=${presupuesto.google}&nPaginas=${presupuesto.pages}&nIdiomas=${presupuesto.languages}`
+        });
+    }, [presupuesto, budgets, navigate]);
 
     return (
         <>

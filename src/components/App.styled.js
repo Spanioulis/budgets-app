@@ -2,9 +2,9 @@ import styled, { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 html, body {
   font-size: 1rem;
@@ -23,7 +23,7 @@ const FieldsetForm = styled.fieldset`
     border: 1px solid black;
     color: black;
     margin: 1rem;
-    height: 445px;
+    max-height: 445px;
     min-width: 42%;
     padding: 1rem;
 `;
@@ -32,10 +32,11 @@ const FieldsetBudget = styled.fieldset`
     border-radius: 5px;
     border: 1px solid black;
     color: black;
-    min-width: 58%;
     height: 500px;
-    padding: 1rem;
     margin: 1rem;
+    max-height: 460px;
+    min-width: 58%;
+    padding: 1rem;
 `;
 const LegendForm = styled.legend`
     background-color: #672f2f;
@@ -49,7 +50,6 @@ const LegendBudget = styled.legend`
     border-radius: 5px;
     border: 1px black solid;
     color: antiquewhite;
-    /* opacity: 0.7; */
     padding: 0.5rem;
 `;
 const Form = styled.form`
@@ -86,8 +86,8 @@ const Panell = styled.div`
     }
 `;
 const Footer = styled.footer`
-    margin-top: 2rem;
     color: antiquewhite;
+    margin-top: 2rem;
 `;
 
 export {
