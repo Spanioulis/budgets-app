@@ -18,8 +18,9 @@ main {
 }
 `;
 const FieldsetForm = styled.fieldset`
-    background-color: antiquewhite;
-    border-radius: 5px;
+    backdrop-filter: blur(-5px);
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 15px;
     border: 1px solid black;
     color: black;
     margin: 1rem;
@@ -28,8 +29,9 @@ const FieldsetForm = styled.fieldset`
     padding: 1rem;
 `;
 const FieldsetBudget = styled.fieldset`
-    background-color: #babce8;
-    border-radius: 5px;
+    backdrop-filter: blur(-5px);
+    background-color: rgb(107, 122, 161, 0.9);
+    border-radius: 15px;
     border: 1px solid black;
     color: black;
     height: 500px;

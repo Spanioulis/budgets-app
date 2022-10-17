@@ -1,9 +1,9 @@
 /* eslint-disable no-self-assign */
 import '../styles/App.css';
+// Importar módulo 'uuidv4' para crear id's
 import { v4 as uuidv4 } from 'uuid';
 
 export const Budget = ({ budgets, search }) => {
-    //* BREAK-POINT
     const filterSearch = (budget) => {
         if (
             budget.customerName.toLowerCase().includes(search.toLowerCase()) ||

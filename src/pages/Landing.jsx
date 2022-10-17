@@ -27,7 +27,7 @@ export const Landing = () => {
                         tus clientes, tenemos el producto que necesitas.
                     </p>
                     <p>
-                        Página web en los idiomas y número de páginas que necesites/desees, adméas
+                        Página web en los idiomas y número de páginas que necesites/desees, además
                         de los servicios de consultoría SEO y posicionamento web{' '}
                         <i>(con Google Ads)</i>.
                     </p>

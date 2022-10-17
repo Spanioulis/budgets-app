@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 const Overlay = styled.div`
-    /* width: 100vh; */
     align-items: center;
     animation: entradaModal 0.7s ease-in;
     background-color: rgba(0, 0, 0, 0.5);

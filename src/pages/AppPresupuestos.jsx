@@ -12,7 +12,6 @@ const AppPresupuestos = () => {
             </header>
             <main>
                 <Presupuesto />
-                {/* <div>Parte derecha</div> */}
             </main>
             <Footer>
                 <Link to="/">
