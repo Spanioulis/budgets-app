@@ -32,15 +32,15 @@ export const Presupuesto = () => {
     const [search, setSearch] = useState('');
 
     // Prevenir pages || languages negativas
-    if (presupuesto.pages < 0) {
+    if (presupuesto.pages < 1) {
         setPresupuesto({
             ...presupuesto,
-            pages: 0
+            pages: 1
         });
-    } else if (presupuesto.languages < 0) {
+    } else if (presupuesto.languages < 1) {
         setPresupuesto({
             ...presupuesto,
-            languages: 0
+            languages: 1
         });
     }
 
@@ -49,7 +49,7 @@ export const Presupuesto = () => {
         const isChecked = checked;
         // Resetear pages & languages al deseleccionar opción Web
         id === 'web'
-            ? setPresupuesto({ ...presupuesto, [id]: isChecked, pages: 0, languages: 0 })
+            ? setPresupuesto({ ...presupuesto, [id]: isChecked, pages: 1, languages: 1 })
             : setPresupuesto({ ...presupuesto, [id]: isChecked });
         // Añadir importe o no según estado del check
         isChecked
