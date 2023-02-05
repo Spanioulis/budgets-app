@@ -1,70 +1,84 @@
-# Getting Started with Create React App
+<!-- PROJECT LOGO -->
+<div align="center">
+  <a href="https://budgets-web.netlify.app/" target="_blank" rel="noopener noreferrer">
+  </a>
+  <h1 align="center">Budget App</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+ <h3 align="left">
+   View Demo <a href="https://budgets-web.netlify.app/">here</a>
+ </h3>
+</div>
 
-## Available Scripts
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#goals-for-this-project">Goals for this project</a></li>
+        <li><a href="#technologies-used">Technologies used</a></li>
+      </ul>
+    </li>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+</details>
 
-In the project directory, you can run:
 
-### `npm start`
+<!-- ABOUT THE PROJECT -->
+## About The Project
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Budgets App is sprint number 7 (second of React) of the [IT Academy](https://www.barcelonactiva.cat/es/itacademy) (Barcelona) ReactJS Bootcamp itinerary.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The general objective of this exercise is to learn about "functional" components and "props", understand and know how to program with JSX, know basic hooks (useRef and useState), know how to implement conditional rendering, and styling with styled components.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+<div align="center"></br>
+  <img src="https://user-images.githubusercontent.com/97700906/216831863-9c45ef0e-94a4-44a6-9aa6-5707794e91c6.gif" alt="Logo" width="100%" height="100%">
+  <p align="center">Demo</p></br>
+</div>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Goals for this project:
 
-### `npm run eject`
+- How to use [useEffect](https://beta.reactjs.org/reference/react/useEffect)
+- How to use [React Router v.6](https://reactrouter.com/en/main)
+- How to use Forms in React
+- How to use [Styled components](https://styled-components.com/)
+- How to use Debugging in React
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Technologies used:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+<p align="left">
+  <a href="https://beta.reactjs.org/">
+    <img src="https://skillicons.dev/icons?i=react" alt="React JS Logo" />
+  </a>
+  <a href="https://styled-components.com/">
+    <img src="https://skillicons.dev/icons?i=styledcomponents" />
+  </a>
+  <a href="https://code.visualstudio.com/">
+    <img src="https://skillicons.dev/icons?i=vscode" alt="VSC Logo"/>
+  </a>
+  <a href="https://git-scm.com/">
+    <img src="https://skillicons.dev/icons?i=git" alt="Git Logo"/>
+  </a></br>
+</p>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- ReactJS (useEffect)
+- React Router v.6
+- Styled Components
+- Create React App
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+<!-- CONTACT -->
+## Contact
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Spanioulis (Sergio Paniagua Sánchez) - [Linkedin](https://www.linkedin.com/in/sergio-paniagua-sanchez/) - pani77sps@gmail.com
 
-### Analyzing the Bundle Size
+Project Link: [https://github.com/Spanioulis/app-book-released](https://github.com/Spanioulis/app-book-released)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
